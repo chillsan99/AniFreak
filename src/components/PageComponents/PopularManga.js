@@ -1,32 +1,29 @@
 import React from 'react'
 import {useState, useEffect } from 'react';
-import ItemCard from './ItemCard';
+import ItemCard from '../OverallComponents/ItemCard';
 import { Splide, SplideSlide } from '@splidejs/react-splide'
 import '@splidejs/react-splide/css/skyblue';
 import './slidestyle.css'
 
-const UpcomingAni = () => { 
-    const [upcoming, setUpcoming] = useState([]);
+const PopularManga = () => { 
+    const [popmanga, setpopularManga] = useState([]);
 
-
-    const getUpcoming = async() => {
-        const upcoming_data = await fetch(
-            `https://api.jikan.moe/v4/seasons/upcoming?filter=tv&limit=25`
+    const getPopularManga = async() => {
+        const popmanga_data = await fetch(
+            `https://api.jikan.moe/v4/top/manga?q=manga`
         ).then((res) => res.json());
         
-        setUpcoming(upcoming_data.data)
+       setpopularManga(popmanga_data.data)
     };
 
     useEffect(() => {
-        getUpcoming();
+        getPopularManga();
     }, []);
 
-    console.log(upcoming)
-
   return (
-    <div className='upcoming-Anime'>
-       <span className='info'> Upcoming Anime </span>
-        <div className='upcoming-wrapper'>
+    <div className='Top-Manga'>
+       <span className='info'> Top Manga Series</span>
+        <div className='popular-wrapper'>
             <Splide options={{
                 type: 'loop',
                 rewind:true, 
@@ -42,8 +39,10 @@ const UpcomingAni = () => {
                     pauseOnFocus: false,
                     speed: 3},
             }}> 
-            {upcoming.map((data) => {
+            {popmanga.map((data) => {
                 return(
+                   
+              
                     <SplideSlide key={data.mal_id}>
                     <ItemCard data = {data}/>
                     </SplideSlide>
@@ -55,4 +54,4 @@ const UpcomingAni = () => {
   )
 }
 
-export default UpcomingAni
+export default PopularManga

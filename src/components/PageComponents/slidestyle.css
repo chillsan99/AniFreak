@@ -1,8 +1,13 @@
 .upcoming-wrapper{
     margin:25px;
     margin-bottom:75px;
-    background-color:rgb(157, 178, 238);
-    border:2px solid rgb(157, 178, 238);
+    border-radius:20px;
+    padding:20px;
+}
+
+.current-wrapper{
+    margin:25px;
+    margin-bottom:75px;
     border-radius:20px;
     padding:20px;
 }

@@ -1,29 +1,29 @@
 import React from 'react'
 import {useState, useEffect } from 'react';
-import ItemCard from './ItemCard';
+import ItemCard from '../OverallComponents/ItemCard';
 import { Splide, SplideSlide } from '@splidejs/react-splide'
 import '@splidejs/react-splide/css/skyblue';
 import './slidestyle.css'
 
-const PopularManga = () => { 
-    const [popmanga, setpopularManga] = useState([]);
+const CurrentSeason = () => { 
+    const [currentSeason, setCurrentSeason] = useState([]);
 
-    const getPopularManga = async() => {
-        const popmanga_data = await fetch(
-            `https://api.jikan.moe/v4/top/manga?q=manga`
+    const getCurrentSeason = async() => {
+        const current = await fetch(
+            `https://api.jikan.moe/v4/seasons/now`
         ).then((res) => res.json());
         
-       setpopularManga(popmanga_data.data)
+       setCurrentSeason(current.data)
     };
 
     useEffect(() => {
-        getPopularManga();
+        getCurrentSeason();
     }, []);
 
   return (
-    <div className='Top-Manga'>
-       <span className='info'> Top Manga Series</span>
-        <div className='popular-wrapper'>
+    <div className='Current-Season'>
+       <span className='info'> This Season in Anime</span>
+        <div className='current-wrapper'>
             <Splide options={{
                 type: 'loop',
                 rewind:true, 
@@ -39,7 +39,7 @@ const PopularManga = () => {
                     pauseOnFocus: false,
                     speed: 3},
             }}> 
-            {popmanga.map((data) => {
+            {currentSeason.map((data) => {
                 return(
                    
               
@@ -54,4 +54,4 @@ const PopularManga = () => {
   )
 }
 
-export default PopularManga
+export default CurrentSeason
