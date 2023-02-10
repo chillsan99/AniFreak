@@ -1,0 +1,27 @@
+.upcoming-wrapper{
+    margin:25px;
+    margin-bottom:75px;
+    background-color:rgb(157, 178, 238);
+    border:2px solid rgb(157, 178, 238);
+    border-radius:20px;
+    padding:20px;
+}
+
+.popular-wrapper{
+    margin:25px;
+    margin-bottom:75px;
+    background-color:rgb(157, 178, 238);
+    border:2px solid rgb(157, 178, 238);
+    border-radius:20px;
+    padding:20px;
+}
+
+.info{
+    text-align:center;
+    justify-content: center;
+    display:flex;
+    font-size:23px;
+    margin-top:45px;
+    margin-bottom:20px;
+    font-weight:bold;
+}
