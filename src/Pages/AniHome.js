@@ -1,8 +1,7 @@
 import React from 'react'
-import CurrentSeason from '../components/PageComponents/CurrentAni'
 import Nav from '../components/OverallComponents/Nav'
-import UpcomingAni from '../components/PageComponents/UpcomingAni'
-import TopSeries from '../components/PageComponents/TopSeries'
+import CurrentSeasonGrid from '../components/PageComponents/CurrentSeasonGrid'
+import Footer from '../components/OverallComponents/Footer'
 
 
 const AniHome = () => {
@@ -11,9 +10,10 @@ const AniHome = () => {
         <Nav/>
         <div className='anime-wrapper'>
             <div className='upcoming-ani'>
-                <TopSeries/>
+              <CurrentSeasonGrid />
             </div>
         </div>
+        <Footer/>
     </div>
   )
 }

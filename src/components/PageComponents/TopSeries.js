@@ -1,9 +1,9 @@
 import React from 'react'
 import {useState, useEffect } from 'react';
 import '@splidejs/react-splide/css/skyblue';
-import './slidestyle.css'
-import { Grid } from '@mui/material';
-import LongCard from '../OverallComponents/LongCard';
+import './topseries.css'
+import { Grid, Box } from '@mui/material';
+import ItemCard from '../OverallComponents/ItemCard';
 
 
 const TopSeries = () => { 
@@ -22,12 +22,16 @@ const TopSeries = () => {
     }, []);
 
   return (
-    <div className='Current-Season'>
-        <div className='current-wrapper'>
+    <div className='Top-Series'>
+        <div className='top-series-wrapper'>
             {topSeries.map((data) => {
-                return(            
-                    <Grid p = {0.5}>
-                     <LongCard data = {data}/>
+                return(
+                    <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                        <Grid item  zeroMinWidth>
+                            <Box>     
+                                <ItemCard data = {data}/>
+                            </Box> 
+                        </Grid> 
                     </Grid>
                 )
             })}

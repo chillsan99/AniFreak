@@ -3,6 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import './CardStyle.css'
 
 const ItemCard = ({data}) => {
     return (
@@ -11,8 +12,9 @@ const ItemCard = ({data}) => {
                 borderRadius: '1rem',
                 boxShadow: 'none',
                 position: 'relative',
-                minWidth: 200,
+                minWidth: 350,
                 minHeight: 560,
+                margin:'20px',
                 '&:after': {
                   content: '""',
                   display: 'block',
@@ -37,13 +39,13 @@ const ItemCard = ({data}) => {
                     color:'white',
                     zIndex: 2,
                     bottom: 0,
-                    width: '100%',
+                    width: '93%',
                     textAlign: "center"}}>
-                    <Typography gutterBottom variant="h5" component="div">
-                        {data.title}
+                    <Typography gutterBottom component="div">
+                        <span className='card-title'>{data.title}</span>
                     </Typography>
-                    <Typography variant="h12" color="white">
-                        {data.score}
+                    <Typography>
+                        <span className='card-score'>{data.score}</span>
                     </Typography>
                 </CardContent>
         </Card>
