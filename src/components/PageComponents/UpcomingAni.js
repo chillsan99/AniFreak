@@ -4,6 +4,7 @@ import ItemCard from '../OverallComponents/ItemCard';
 import { Splide, SplideSlide } from '@splidejs/react-splide'
 import '@splidejs/react-splide/css/skyblue';
 import './slidestyle.css'
+import { Link } from 'react-router-dom';
 
 const UpcomingAni = () => { 
     const [upcoming, setUpcoming] = useState([]);
@@ -45,7 +46,9 @@ const UpcomingAni = () => {
             {upcoming.map((data) => {
                 return(
                     <SplideSlide key={data.mal_id}>
+                    <Link to={"/show/" + data.mal_id}>
                     <ItemCard data = {data}/>
+                    </Link>
                     </SplideSlide>
                 )
             })}

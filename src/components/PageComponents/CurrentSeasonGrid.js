@@ -2,6 +2,7 @@ import { Grid } from '@mui/material';
 import {useState, useEffect } from 'react';
 import React from 'react'
 import ItemCard from '../OverallComponents/ItemCard';
+import { Link } from 'react-router-dom'
 
 
 const CurrentSeasonGrid = () => {
@@ -27,7 +28,9 @@ const CurrentSeasonGrid = () => {
                             {currentSeason.map((data) => {
                             return(
                                 <Grid item xs={{xs: 2, sm: 3, md: 9}}>
+                                    <Link to={"/show/" + data.mal_id}>
                                     <ItemCard data= {data}/>
+                                    </Link>
                                 </Grid>
                             )
                             })}
