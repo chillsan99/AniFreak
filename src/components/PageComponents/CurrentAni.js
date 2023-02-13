@@ -10,12 +10,19 @@ const CurrentSeason = () => {
     const [currentSeason, setCurrentSeason] = useState([]);
 
     const getCurrentSeason = async() => {
+        //const check = localStorage.getItem('currentSeason');
+
+        //if(check){
+        //    setCurrentSeason(check)
+        //}else{
         const current = await fetch(
             `https://api.jikan.moe/v4/seasons/now`
         ).then((res) => res.json());
-        
-       setCurrentSeason(current.data)
-    };
+
+       // localStorage.setItem('currentSeason', current.data)
+        setCurrentSeason(current.data)
+        };
+   // }
 
     useEffect(() => {
         getCurrentSeason();
@@ -26,6 +33,8 @@ const CurrentSeason = () => {
        <span className='info'> This Season in Anime</span>
         <div className='current-wrapper'>
             <Splide options={{
+                lazyLoad:'true',
+                height:'580px',
                 type: 'loop',
                 rewind:true, 
                 autoplay: true,

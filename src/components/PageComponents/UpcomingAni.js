@@ -8,8 +8,7 @@ import { Link } from 'react-router-dom';
 
 const UpcomingAni = () => { 
     const [upcoming, setUpcoming] = useState([]);
-
-
+    
     const getUpcoming = async() => {
         const upcoming_data = await fetch(
             `https://api.jikan.moe/v4/seasons/upcoming?filter=tv&limit=25`
@@ -29,6 +28,8 @@ const UpcomingAni = () => {
        <span className='info'> Upcoming Anime </span>
         <div className='upcoming-wrapper'>
             <Splide options={{
+                lazyLoad:'true',
+                height:'580px',
                 type: 'loop',
                 rewind:true, 
                 autoplay: true,

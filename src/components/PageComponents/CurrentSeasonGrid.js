@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 
 const CurrentSeasonGrid = () => {
-  const [currentSeason, setCurrentSeason] = useState([]);
+  const [currentSeason, setCurrentSeason] = useState();
 
   const getCurrentSeason = async() =>{
     const current = await fetch(
